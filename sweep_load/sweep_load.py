@@ -33,8 +33,8 @@ def pload2d(file_path: str, i: int):
     data_dict = {}
     data_dict['xs'] = np.array(meta['fast_setpoints'])
     data_dict['ys'] = np.array(meta['slow_setpoints'])
-    lenx = len(meta['fast_setpoints'])
-    leny = len(meta['slow_setpoints'])
+    lenx = np.shape(meta['fast_setpoints'])[-1]
+    leny = np.shape(meta['slow_setpoints'])[-1]
     for ind, col in enumerate(meta['columns']):
         d = data[:, ind]
         data_dict[col] = np.pad(d, (0, lenx*leny - len(d))).reshape((leny, lenx))
