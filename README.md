@@ -15,3 +15,4 @@ Installing python projects can be a real pain. Here is how I personally set up l
 
 # Basic usage
 TODO: fill this out
+Load the thing
