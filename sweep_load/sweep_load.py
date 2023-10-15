@@ -21,6 +21,7 @@ def pload1d(file_path: str, i: int):
     meta = load_meta(file_path, i)
 
     data_dict = {}
+    data_dict['xs'] = np.array(meta['setpoints'])
     for ind, col in enumerate(meta['columns']):
         data_dict[col] = data[:, ind]
     return data_dict
