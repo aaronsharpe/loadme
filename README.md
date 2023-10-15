@@ -11,7 +11,7 @@ Installing python projects can be a real pain. Here is how I personally set up l
 3. Next, make sure pip exists with python -m ensurepip. Again, pip might have some odd path like pip3.
 4. pip install jupyterlab.
 5. Download and install loadme. Git clone, then pip install -e.
-6. Test measureme by following the basic usage section below!
+6. Test loadme by following the basic usage section below!
 
 # Basic usage
 TODO: fill this out
