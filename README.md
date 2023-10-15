@@ -23,19 +23,19 @@ import sweep_load
 To quickly check the metadata of a measurement file, we can load it in by specifying the path to the file and the sweep id:
 
 ```python
-metadata = load_meta('/path/to/data/directory', 1)
+metadata = sweep_load.load_meta('/path/to/data/directory', 1)
 ```
 
 The simplest way to load in data is to use ```load```
 
 ```python
-data = load('/path/to/data/directory', 1)
+data = sweep_load.load('/path/to/data/directory', 1)
 ```
 
 which returns and ndarray. If we want to load the data in a slightly fancier way we can use ```pload1d``` or ```pload2d```, which returns dictionaries where the keys are given by the metadata. 
 
 ```python
-data = pload2d('/path/to/data/directory', 1)
+data = sweep_load.pload2d('/path/to/data/directory', 1)
 ```
 
 To quickly check all the fields in the data file (without using ```load_meta```):
