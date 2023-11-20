@@ -27,7 +27,7 @@ def pload1d(file_path: str, i: int):
     return data_dict
 
 
-def pload2d(file_path: str, i: int):
+def pload2d(file_path: str, i: int, pad_nan: bool=True):
     data = load(file_path, i)
     meta = load_meta(file_path, i)
 
@@ -38,6 +38,10 @@ def pload2d(file_path: str, i: int):
     leny = np.shape(meta['slow_setpoints'])[-1]
     for ind, col in enumerate(meta['columns']):
         d = data[:, ind]
-        data_dict[col] = np.pad(d, (0, lenx*leny - len(d))).reshape((leny, lenx))
+        if pad_nan:
+            data_dict[col] = np.pad(d, (0, lenx*leny - len(d)), 
+                                    'constant', constant_values=(np.NAN, np.NAN)).reshape((leny, lenx))
+        else:
+            data_dict[col] = np.pad(d, (0, lenx*leny - len(d))).reshape((leny, lenx))
     return data_dict
 
